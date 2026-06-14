@@ -20,13 +20,17 @@
 
 ## Development
 
-<!-- TODO: How to install, build, test, and run -->
-<!--
-- Install: `npm install` / `pip install -e .`
-- Run: `npm dev` / `make run`
-- Test: `npm test` / `make test`
-- Lint: `npm run lint` / `make lint`
--->
+This template ships a Python scaffold managed with `uv`. Adjust if you change stacks.
+
+- Install: `uv sync`
+- Test: `uv run pytest` (with coverage: `uv run pytest --cov`)
+- Lint: `uv run ruff check .` (auto-fix: `uv run ruff check --fix .`)
+- Format: `uv run ruff format .`
+- Type check: `uv run mypy`
+- Pre-commit hooks: `uv run pre-commit install`
+
+Ruff handles both linting and import sorting (the `I` rules) — there is no separate isort step.
+CI (`.github/workflows/ci.yml`) runs lint + format check + mypy + pytest/coverage on 3.11–3.13.
 
 ## Conventions
 
