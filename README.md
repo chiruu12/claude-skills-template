@@ -1,15 +1,39 @@
 # Claude Skills Template
 
-A GitHub template with **59 curated Claude Code skills** for bootstrapping new projects. Skip the setup, start building.
+[![CI](https://github.com/chiruu12/claude-skills-template/actions/workflows/ci.yml/badge.svg)](https://github.com/chiruu12/claude-skills-template/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/chiruu12/claude-skills-template/actions/workflows/codeql.yml/badge.svg)](https://github.com/chiruu12/claude-skills-template/actions/workflows/codeql.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](pyproject.toml)
+
+A GitHub template with **59 curated Claude Code skills** plus a ready-to-go **Python project + CI** for bootstrapping new projects. Skip the setup, start building.
+
+> Using this template? Update the badge URLs above to point at your own repo.
 
 ## Quick Start
 
 1. Click **"Use this template"** on GitHub
 2. Clone your new repo
 3. Edit `CLAUDE.md` — fill in your project details
-4. Start using skills: `/tdd`, `/gstack-ship`, `/grill-me`, etc.
+4. Rename `src/your_package/` and update the matching names in `pyproject.toml`
+5. `uv sync` then `uv run pytest` — CI is green out of the box
+6. Start using skills: `/tdd`, `/gstack-ship`, `/grill-me`, etc.
 
 ## What's Included
+
+### Python project scaffold (green CI on first push)
+- `pyproject.toml` — uv-managed, with **Ruff** (lint + import sorting via the `I` rules + formatter), **mypy** (strict), and **pytest + coverage** all pre-configured
+- `src/your_package/` — a tiny placeholder package (rename it to your own)
+- `tests/` — a sample test so the suite is green out of the box
+
+### `.github/` — CI & repo hygiene
+- **`workflows/ci.yml`** — lint + format check, mypy type check, and a pytest+coverage matrix across Python 3.11 / 3.12 / 3.13 (all via `uv`)
+- **`workflows/codeql.yml`** — GitHub CodeQL security/quality scan on push, PR, and weekly
+- **`dependabot.yml`** — weekly grouped updates for Python deps + GitHub Actions
+- **Issue templates** (bug report, feature request) + **PR template**
+- **`.pre-commit-config.yaml`** — Ruff + hygiene hooks (`uv run pre-commit install`)
+- **`.editorconfig`** — consistent indentation/line endings across editors
+
+> Import sorting is handled by Ruff (`I` rules) — no separate `isort` needed.
 
 ### `.claude/settings.json`
 - Read-only permissions pre-allowed (Read, Glob, Grep, git status/log/diff)

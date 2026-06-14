@@ -30,4 +30,9 @@ tmp/
 
 # Python
 .ruff_cache/
+.mypy_cache/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
 *.egg-info/
