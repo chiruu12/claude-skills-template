@@ -75,4 +75,5 @@ branch = true
 
 [tool.coverage.report]
 show_missing = true
-fail_under = 0
+# Coverage gate — CI fails below this. Adjust to taste as the project grows.
+fail_under = 80
